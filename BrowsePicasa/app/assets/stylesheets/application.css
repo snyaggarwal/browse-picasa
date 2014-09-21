@@ -11,3 +11,22 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+    background: url('home.jpg') no-repeat;
+    background-size: 100%;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
+.welcome-heading {
+    text-align: center;
+    position: relative;
+    padding-top: 20%;
+}
+
+.welcome-heading h1 {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
