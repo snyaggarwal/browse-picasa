@@ -1,0 +1,66 @@
+<%= render partial: 'shared/google_plus' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="welcome-heading">
+        <h1>Google Album Browser</h1>
+
+        <h3>A Simple Picasa explorer by Sny</h3>
+
+        <div id="gConnect">
+          <button class="g-signin"
+                  data-scope="https://www.googleapis.com/auth/plus.login https://picasaweb.google.com/data/"
+                  data-requestvisibleactions="http://schemas.google.com/AddActivity"
+                  data-clientId="<%= GOOGLE_AUTH_CONFIG['google_plus']['client_id'] %>"
+                  data-accesstype="offline"
+                  data-callback="onSignInCallback"
+                  data-theme="dark"
+                  data-cookiepolicy="single_host_origin">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  var helper = (function () {
+    var authResult,
+
+      onSignInCallback = function (authResult) {
+        if (authResult['access_token']) {
+          $.ajax({
+            type: 'POST',
+            url: '/login',
+            data: authResult,
+            async: false,
+            success: function (result) {
+              console.dir(result);
+              /* G+ stuff */
+              $('#authOps').hide();
+              $('#profile').empty();
+              $('#visiblePeople').empty();
+              $('#authResult').empty();
+              $('#gConnect').show();
+              /* */
+              window.location.href = '/home'
+            },
+            error: function (e) {
+              console.log(e);
+            }
+          })
+        }
+
+      };
+
+    return {
+      onSignInCallback: onSignInCallback
+    }
+  })();
+
+  function onSignInCallback(authResult) {
+    helper.onSignInCallback(authResult);
+  }
+</script>

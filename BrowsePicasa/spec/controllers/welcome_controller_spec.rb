@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HomeController, type: :controller do
+describe WelcomeController, type: :controller do
   it 'should return 200' do
     get :index
 

@@ -1,5 +1,10 @@
 BrowsePicasa::Application.routes.draw do
-  root to: 'home#index'
+  root to: 'welcome#index'
 
-  get 'home/index' => 'home#index'
+  get 'welcome/index' => 'welcome#index'
+  post 'login' => 'login#index'
+  get 'home' => 'home#index'
+  delete 'logout' => 'home#logout'
+  get 'albums/:id' => 'albums#photos'
+  post 'albums/:album_id/photos/:id/comment' => 'photos#comment'
 end

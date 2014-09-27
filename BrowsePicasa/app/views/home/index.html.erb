@@ -3,9 +3,68 @@
     <div class="col-lg-12">
       <div class="welcome-heading">
         <h1>Google Album Browser</h1>
+
         <h3>A Simple Picasa explorer by Sny</h3>
+
+        <% @albums.each do |album| %>
+          <div>
+            <a href="/albums/<%= album.id %>"><img src="<%= album.image %>"></a>
+            <label><%= album.title %></label>
+          </div>
+        <% end %>
+
+        <!--<form method="post" action="/home/logout">-->
+          <button id="disconnect" class="btn btn-default">Logout</button>
+        <!--</form>-->
       </div>
     </div>
   </div>
 
 </div>
+
+<script type="text/javascript">
+  var helper = (function () {
+    var logout = function () {
+        console.log('foo');
+        $.ajax({
+          type: 'DELETE',
+          url: '/logout',
+          async: false
+        });
+      },
+
+      disconnect = function () {
+        var accessToken = $('#disconnect').data('token');
+        console.log(accessToken);
+        var revokeUrl = 'https://accounts.google.com/o/oauth2/revoke?token=' + accessToken;
+        $.ajax({
+          type: 'GET',
+          url: revokeUrl,
+          async: false,
+          contentType: "application/json",
+          dataType: 'jsonp',
+          success: function (nullResponse) {
+            console.log('discconet success');
+            console.log(nullResponse);
+//            invalidateSession();
+          },
+          error: function (e) {
+            console.log('discconet error');
+            console.log(e);
+          }
+        });
+      };
+
+
+    return {
+      disconnect: disconnect,
+      logout: logout
+    }
+  })();
+
+  $(document).ready(function () {
+    $('#disconnect').click(helper.logout);
+  });
+
+
+</script>
