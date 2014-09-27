@@ -1,0 +1,43 @@
+{
+  "feed" : {
+    "entry": [
+      {
+        "id": ["ref", "1"],
+
+        "group": {
+          "title": "title1",
+          "thumbnail": [
+            {
+              "url": "http://lh5.ggpht.com/-WGls_4aUOv4/UkKDNsxJQKE/AAAAAAAAABk/SdfXVLaxVIw/s160-c/ProfilePhotos02.jpg",
+              "height": "160",
+              "width": "160"
+            },
+            {
+              "url": "http://lh5.ggpht.com/-WGls_4aUOv4/UkKDNsxJQKE/AAAAAAAAABk/SdfXVLaxVIw/s160-c/ProfilePhotos02.jpg",
+              "height": "288",
+              "width": "288"
+            }
+          ]
+        }
+      },
+      {
+        "id": ["ref", "2"],
+        "group": {
+          "title": "title2",
+          "thumbnail": [
+            {
+              "url": "http://lh5.ggpht.com/-WGls_4aUOv4/UkKDNsxJQKE/AAAAAAAAABk/SdfXVLaxVIw/s160-c/ProfilePhotos02.jpg",
+              "height": "160",
+              "width": "160"
+            },
+            {
+              "url": "http://lh5.ggpht.com/-WGls_4aUOv4/UkKDNsxJQKE/AAAAAAAAABk/SdfXVLaxVIw/s160-c/ProfilePhotos02.jpg",
+              "height": "288",
+              "width": "288"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

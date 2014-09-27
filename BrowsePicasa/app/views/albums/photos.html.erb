@@ -31,35 +31,35 @@
 
 </div>
 
-<script type="text/javascript">
-  var helper = (function () {
-    var logout = function () {
-      $.ajax({
-        type: 'DELETE',
-        url: '/home/logout',
-        async: false
-      });
-    };
-
-    return {
-      logout: logout
-    }
-  })();
-
-  $(document).ready(function () {
-//    $('#disconnect').click(helper.logout);
-    $('#post_comment').click(function () {
-      $.ajax({
-        type: 'POST',
-        url: $('#post_comment').data('comment-url'),
-        data: {comment: $('#comment').val()},
-        success: function (res, data) {
-          console.log(res);
-          console.log(data);
-        }
-      })
-    });
-  });
-
-
-</script>
+<!--<script type="text/javascript">-->
+//  var helper = (function () {
+//    var logout = function () {
+//      $.ajax({
+//        type: 'DELETE',
+//        url: '/home/logout',
+//        async: false
+//      });
+//    };
+//
+//    return {
+//      logout: logout
+//    }
+//  })();
+//
+//  $(document).ready(function () {
+////    $('#disconnect').click(helper.logout);
+//    $('#post_comment').click(function () {
+//      $.ajax({
+//        type: 'POST',
+//        url: $('#post_comment').data('comment-url'),
+//        data: {comment: $('#comment').val()},
+//        success: function (res, data) {
+//          console.log(res);
+//          console.log(data);
+//        }
+//      })
+//    });
+//  });
+//
+//
+<!--</script>-->

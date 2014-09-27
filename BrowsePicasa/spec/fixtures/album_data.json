@@ -194,6 +194,119 @@
           "type": "plain"
         }
       }
+    },
+    {
+      "id": {
+        "$t": "http://picasaweb.google.com/data/entry/api/user/114546192763646885435/albumid/5927444330951819425?alt=json"
+      },
+      "published": {
+        "$t": "2013-09-08T10:59:17.000Z"
+      },
+      "updated": {
+        "$t": "2013-09-25T06:36:55.765Z"
+      },
+      "category": [
+        {
+          "scheme": "http://schemas.google.com/g/2005#kind",
+          "term": "http://schemas.google.com/photos/2007#album"
+        }
+      ],
+      "title": {
+        "$t": "Profile Photos",
+        "type": "text"
+      },
+      "summary": {
+        "$t": "Album for profile photos",
+        "type": "text"
+      },
+      "rights": {
+        "$t": "public",
+        "type": "text"
+      },
+      "link": [
+        {
+          "rel": "http://schemas.google.com/g/2005#feed",
+          "type": "application/atom+xml",
+          "href": "http://picasaweb.google.com/data/feed/api/user/114546192763646885435/albumid/5927444330951819425?alt=json"
+        },
+        {
+          "rel": "alternate",
+          "type": "text/html",
+          "href": "https://picasaweb.google.com/114546192763646885435/ProfilePhotos02"
+        },
+        {
+          "rel": "self",
+          "type": "application/atom+xml",
+          "href": "http://picasaweb.google.com/data/entry/api/user/114546192763646885435/albumid/5927444330951819425?alt=json"
+        }
+      ],
+      "author": [
+        {
+          "name": {
+            "$t": "Sunny Aggarwal"
+          },
+          "uri": {
+            "$t": "https://picasaweb.google.com/114546192763646885435"
+          }
+        }
+      ],
+      "gphoto$id": {
+        "$t": "5927444330951819425"
+      },
+      "gphoto$name": {
+        "$t": "ProfilePhotos02"
+      },
+      "gphoto$location": {
+        "$t": ""
+      },
+      "gphoto$access": {
+        "$t": "public"
+      },
+      "gphoto$timestamp": {
+        "$t": "1378637957000"
+      },
+      "gphoto$numphotos": {
+        "$t": 1
+      },
+      "gphoto$user": {
+        "$t": "114546192763646885435"
+      },
+      "gphoto$nickname": {
+        "$t": "Sunny Aggarwal"
+      },
+      "gphoto$albumType": {
+        "$t": "ProfilePhotos"
+      },
+      "media$group": {
+        "media$content": [
+          {
+            "url": "http://lh5.ggpht.com/-WGls_4aUOv4/UkKDNsxJQKE/AAAAAAAAABk/SdfXVLaxVIw/ProfilePhotos02.jpg",
+            "type": "image/jpeg",
+            "medium": "image"
+          }
+        ],
+        "media$credit": [
+          {
+            "$t": "Sunny Aggarwal"
+          }
+        ],
+        "media$description": {
+          "$t": "",
+          "type": "plain"
+        },
+        "media$keywords": {},
+        "media$thumbnail": [
+          {
+            "url": "http://lh5.ggpht.com/-WGls_4aUOv4/UkKDNsxJQKE/AAAAAAAAABk/SdfXVLaxVIw/s160-c/ProfilePhotos02.jpg",
+            "height": 160,
+            "width": 160
+          }
+        ],
+        "media$title": {
+          "$t": "Profile Photos",
+          "type": "plain"
+        }
+      }
     }
   ]
 }}

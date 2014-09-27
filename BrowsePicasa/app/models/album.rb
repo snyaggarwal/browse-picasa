@@ -7,6 +7,4 @@ class Album
     self.title = title
     self.image = image
   end
-
-
 end

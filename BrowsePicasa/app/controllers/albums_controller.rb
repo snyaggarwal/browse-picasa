@@ -1,8 +1,12 @@
 class AlbumsController < ApplicationController
 
+  def all
+    albums = Albums.new(current_user.user_id, current_user.access_token).albums
+    render json: albums, status: 200
+  end
+
   def photos
-    #find album
-    #Albums.get(params[:user_id], params[:id]).photos
-    @photos = Photos.new(current_user.access_token, current_user.id, params[:id]).photos
+    photos = Albums.new(current_user.user_id, current_user.access_token).photos(params[:id])
+    render json: photos, status: 200
   end
 end

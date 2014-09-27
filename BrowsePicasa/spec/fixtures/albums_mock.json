@@ -1,0 +1,24 @@
+{
+  "feed" : {
+    "entry": [
+      {
+        "id": ["album_link", "1"],
+        "title": "title1",
+        "group": {
+          "content": {
+            "url": "album_image_url"
+          }
+        }
+      },
+      {
+        "id": ["album_link", "2"],
+        "title": "title2",
+        "group": {
+          "content": {
+            "url": "album_image_url"
+          }
+        }
+      }
+    ]
+  }
+}

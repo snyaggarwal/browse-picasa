@@ -37,7 +37,7 @@ module PicasaWeb
       req.body = comment
       http.request(req)
     end
-    response
+    response.status
   end
 
   private

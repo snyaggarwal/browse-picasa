@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
+  respond_to :json
 
   def comment
-    Photo.comment(current_user.access_token, session[:user_id], params[:album_id], params[:id], params[:comment])
+    Photos.new(current_user.access_token, params[:user_id], params[:album_id]).comment(params[:id], params[:comment])
   end
 end
