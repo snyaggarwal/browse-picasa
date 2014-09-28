@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  include PicasaWeb
 
   def create
     session[:access_token] = params['access_token'].to_s

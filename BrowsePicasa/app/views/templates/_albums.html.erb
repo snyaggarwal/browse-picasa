@@ -1,13 +1,8 @@
-<div class="row">
-  <div class="col-lg-12">
-    <div class="welcome-heading">
-      <h1>Google Album Browser</h1>
-      <div ng-repeat="album in albums">
-        <div>
-          <img ng-src="{{ album.image }}" ng-click="getPhotos(album)"/>
-          <label>{{ album.title }}</label>
-        </div>
-      </div>
-    </div>
+<%= render partial: 'templates/logout' %>
+
+<div ng-repeat="album in albums">
+  <div>
+    <img ng-src="{{ album.image }}" ng-click="getPhotos(album)"/>
+    <label>{{ album.title }}</label>
   </div>
 </div>

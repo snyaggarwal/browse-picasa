@@ -1,4 +1,4 @@
-BrowsePicasa.controller('LoginCtrl', ['$scope', '$location', 'Login', function($scope, $location, LoginService){
+BrowsePicasa.controller('LoginCtrl', ['$scope', '$location', 'Authentication', 'Notification', function($scope, $location, Authentication, Notification){
   $scope.signIn = function(authResult) {
     $scope.$apply(function() {
       $scope.processAuth(authResult);
@@ -9,13 +9,13 @@ BrowsePicasa.controller('LoginCtrl', ['$scope', '$location', 'Login', function($
     $scope.immediateFailed = true;
     if (authResult['access_token']) {
       $scope.immediateFailed = false;
-      LoginService.create(authResult['access_token']);
+      Authentication.create(authResult['access_token']);
       $location.path('/albums');
     } else if (authResult['error']) {
       if (authResult['error'] == 'immediate_failed') {
         $scope.immediateFailed = true;
       } else {
-        console.log('Error:' + authResult['error']);
+        Notification.log('Error:' + authResult['error'], 'error', 0);
       }
     }
   };

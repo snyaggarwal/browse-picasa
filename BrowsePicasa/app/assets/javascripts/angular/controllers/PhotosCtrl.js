@@ -1,4 +1,4 @@
-BrowsePicasa.controller('PhotosCtrl', ['$scope', '$location', '$routeParams', 'Albums', 'Photos', function($scope, $location, $routeParams, AlbumsService, PhotosService){
+BrowsePicasa.controller('PhotosCtrl', ['$scope', '$location', '$routeParams', 'Albums', 'Photos', 'Notification', function($scope, $location, $routeParams, AlbumsService, PhotosService, Notification){
   $scope.init = function() {
     PhotosService.all($routeParams.id).then(function(response) {
       $scope.photos = response.data;
@@ -8,7 +8,8 @@ BrowsePicasa.controller('PhotosCtrl', ['$scope', '$location', '$routeParams', 'A
   $scope.postComment = function(photo) {
     PhotosService.comment(photo.album_id, photo.id, photo.comment)
       .then(function(response) {
-         console.log(response);
+        Notification.log('Successfully Posted Comment ' + photo.comment + ' on ' + photo.title, 'success');
+        photo.comment = '';
       });
   };
 

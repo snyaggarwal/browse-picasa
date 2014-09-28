@@ -6,7 +6,7 @@
         <div>
           <img ng-src="{{ photo.image }}"/>
           <label>{{ photo.title }}</label>
-          <textarea name="comment" cols="60" rows="6" ng-model="photo.comment"></textarea>
+          <textarea name="comment" cols="60" rows="6" ng-model="photo.comment">{{ photo.comment }}</textarea>
           <button class="btn btn-success" ng-click='postComment(photo)'>Post</button>
         </div>
       </div>

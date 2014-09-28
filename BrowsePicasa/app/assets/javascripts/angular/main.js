@@ -1,6 +1,6 @@
 BrowsePicasa = angular.module('BrowsePicasa', ['ngRoute']);
 
-BrowsePicasa.config(['$routeProvider', function ($routeProvider) {
+BrowsePicasa.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'login.html',
@@ -17,4 +17,6 @@ BrowsePicasa.config(['$routeProvider', function ($routeProvider) {
     .otherwise({
       redirectTo: '/'
     });
+
+//  $httpProvider.interceptors.push('HttpInterceptor'); can configure
 }]);

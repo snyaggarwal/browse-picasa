@@ -10,6 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require ../../../vendor/assets/javascripts/alertify.js
 //= require ../../../vendor/assets/javascripts/angular.min.js
 //= require ../../../vendor/assets/javascripts/angular-route.min.js
 //= require angular/main.js
