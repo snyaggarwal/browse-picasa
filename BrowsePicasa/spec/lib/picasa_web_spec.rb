@@ -51,15 +51,17 @@ describe 'PicasaWeb' do
                      .with('https://picasaweb.google.com/data/feed/api/user/user_id/albumid/album_id/photoid/photo_id?kind=comment&access_token=token')
                      .and_return(mock_uri)
       expect(Net::HTTP).to receive(:new).with(mock_uri.host, mock_uri.port).and_return(mock_http)
-      expect(Net::HTTP::Post).to receive(:new).with(mock_uri.request_uri).and_return(mock_response)
+      expect(Net::HTTP::Post).to receive(:new).with(mock_uri.request_uri, {"Content-type"=>"application/atom+xml"}).and_return(mock_response)
       expect(mock_response).to receive(:body=).with("<entry xmlns='http://www.w3.org/2005/Atom'> <content>comment</content> <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/photos/2007#comment'/></entry>")
       expect(mock_http).to receive(:start).and_yield(mock_http)
+      expect(mock_http).to receive(:use_ssl=).with(true)
+      expect(http_response).to receive(:code).and_return('201')
       expect(mock_http).to receive(:request).with(mock_response).and_return(http_response)
 
 
       response = @dummy_class.post_comment({ comment: 'comment', access_token: 'token', user_id: 'user_id', album_id: 'album_id', photo_id: 'photo_id' })
 
-      expect(response).to eq(http_response)
+      expect(response).to eq('201')
     end
   end
 end

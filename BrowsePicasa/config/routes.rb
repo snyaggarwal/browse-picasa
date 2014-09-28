@@ -5,8 +5,7 @@ BrowsePicasa::Application.routes.draw do
   post 'login' => 'session#create'
   delete 'logout' => 'session#logout'
 
-  get 'home' => 'home#index'
   get 'albums' => 'albums#all'
-  get 'albums/:id' => 'albums#photos'
+  get 'albums/:id/photos' => 'albums#photos'
   post 'albums/:album_id/photos/:id/comment' => 'photos#comment'
 end

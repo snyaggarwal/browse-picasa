@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="welcome-heading">
+      <h1>Google Album Browser</h1>
+      <div ng-repeat="photo in photos">
+        <div>
+          <img ng-src="{{ photo.image }}"/>
+          <label>{{ photo.title }}</label>
+          <textarea name="comment" cols="60" rows="6" ng-model="photo.comment"></textarea>
+          <button class="btn btn-success" ng-click='postComment(photo)'>Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

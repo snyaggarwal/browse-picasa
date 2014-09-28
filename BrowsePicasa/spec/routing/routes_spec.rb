@@ -6,7 +6,7 @@ describe 'routes' do
     expect({ post: 'login' }).to route_to(controller: 'session', action: 'create')
     expect({ delete: 'logout' }).to route_to(controller: 'session', action: 'logout')
     expect({ get: 'albums' }).to route_to(controller: 'albums', action: 'all')
-    expect({ get: 'albums/:id' }).to route_to(controller: 'albums', action: 'photos', id: ':id')
+    expect({ get: 'albums/:id/photos' }).to route_to(controller: 'albums', action: 'photos', id: ':id')
     expect({ post: 'albums/:album_id/photos/:id/comment' }).to route_to(controller: 'photos', action: 'comment', id: ':id', album_id: ':album_id')
   end
 end

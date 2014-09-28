@@ -7,11 +7,11 @@ class Photos
 
   MAX_PHOTOS_PER_ALBUM = 3
 
-  def initialize(access_token, user_id, album_id)
+  def initialize(access_token, user_id, album_id, refresh_photos = true)
     self.access_token = access_token
     self.user_id = user_id
     self.album_id = album_id
-    self.photos = parse(load_photos(access_token, user_id, album_id, MAX_PHOTOS_PER_ALBUM))
+    self.photos = refresh_photos ? parse(load_photos(access_token, user_id, album_id, MAX_PHOTOS_PER_ALBUM)) : []
   end
 
   def comment(photo_id, comment)
@@ -23,7 +23,8 @@ class Photos
     photo_entries = photos_data['feed']['entry'] rescue []
     return photo_entries if photo_entries.blank?
     photo_entries.map do |metadata|
-      image_url = metadata['group']['thumbnail'].detect {|thumbnail| thumbnail['height'] == '288'}
+      #image_url = metadata['group']['thumbnail'].detect {|thumbnail| thumbnail['height'] == '288'}
+      image_url = metadata['group']['thumbnail'].last
       Photo.new(metadata['id'][1], self.album_id, metadata['group']['title'], image_url['url'])
     end
   end

@@ -29,15 +29,15 @@ module PicasaWeb
 
   def post_comment(params)
     comment = "<entry xmlns='http://www.w3.org/2005/Atom'> <content>%{comment}</content> <category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/photos/2007#comment'/></entry>" % params
-
     comments_end_point = URI.parse($post_comments_url % params)
     http = Net::HTTP.new(comments_end_point.host, comments_end_point.port)
+    http.use_ssl = true
     response = http.start do |http|
-      req = Net::HTTP::Post.new(comments_end_point.request_uri)
+      req = Net::HTTP::Post.new(comments_end_point.request_uri, {'Content-type' => 'application/atom+xml' })
       req.body = comment
       http.request(req)
     end
-    response.status
+    response.code
   end
 
   private
