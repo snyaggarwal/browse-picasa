@@ -21,7 +21,7 @@ describe 'PicasaWeb' do
 
       response = @dummy_class.profile(token)
 
-      expect(response).to eq({ "photo" => [{ "id" => 1 }] })
+      expect(response).to eq({ 'photo' => [{ 'id' => 1 }] })
     end
 
     it 'should call Net/HTTP get services on disconnect' do
@@ -39,7 +39,7 @@ describe 'PicasaWeb' do
 
       response = @dummy_class.load_albums('user_id', token)
 
-      expect(response).to eq({ 'id' => "1" })
+      expect(response).to eq({ 'id' => '1' })
     end
 
     it 'should convert xml to hash on photos load' do
@@ -48,7 +48,7 @@ describe 'PicasaWeb' do
 
       response = @dummy_class.load_photos(token, 'user_id', 'album_id', 3)
 
-      expect(response).to eq({ 'id' => "1" })
+      expect(response).to eq({ 'id' => '1' })
     end
 
     it 'should call Net/HTTP post services on comment post' do
