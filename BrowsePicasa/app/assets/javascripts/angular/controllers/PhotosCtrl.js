@@ -1,8 +1,12 @@
 BrowsePicasa.controller('PhotosCtrl', ['$scope', '$location', '$routeParams', 'Albums', 'Photos', 'Notification', function($scope, $location, $routeParams, AlbumsService, PhotosService, Notification){
   $scope.init = function() {
     PhotosService.all($routeParams.id).then(function(response) {
-      $scope.photos = response.data;
-      $scope.album_name = $scope.photos[0].album_name;
+      if($.isEmptyObject(response.data) || response.data == "null") {
+        $scope.noPhotos = true
+      } else {
+        $scope.photos = response.data;
+        $scope.album_name = $scope.photos[0].album_name;
+      }
     });
   };
 

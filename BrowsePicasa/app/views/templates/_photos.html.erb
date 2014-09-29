@@ -5,19 +5,26 @@
     <h3 class="panel-title">Photos of Album <i>{{ album_name }}</i></h3>
   </div>
   <div class="panel-body">
-    <div class="panel panel-default" ng-repeat="photo in photos">
-      <div class="panel-body">
-        <div class="pull-left photo">
-          <img ng-src="{{ photo.image }}"/>
-          <label>{{ photo.title }}</label>
-        </div>
-        <div class="center">
-          <textarea name="comment" class="col-md-6" rows="6" ng-model="photo.comment">{{ photo.comment }}</textarea>
-        </div>
-        <div class="col-md-7">
-          <button class="btn btn-default center" ng-click='postComment(photo)'>Post</button>
+    <div ng-hide='noPhotos'>
+      <div class="panel panel-default" ng-repeat="photo in photos">
+        <div class="panel-body">
+          <div class="pull-left photo">
+            <img ng-src="{{ photo.image }}"/>
+            <label>{{ photo.title }}</label>
+          </div>
+          <div class="center">
+            <textarea name="comment" class="col-md-6" rows="6" ng-model="photo.comment">{{ photo.comment }}</textarea>
+          </div>
+          <div class="col-md-7">
+            <button class="btn btn-default center" ng-click='postComment(photo)'>Post</button>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="panel panel-default" ng-show='noPhotos'>
+    <div class="panel-body">
+      <span class="glyphicon glyphicon-thumbs-down"> No photos found </span>
     </div>
   </div>
 </div>
