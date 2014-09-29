@@ -2,6 +2,7 @@ BrowsePicasa.controller('PhotosCtrl', ['$scope', '$location', '$routeParams', 'A
   $scope.init = function() {
     PhotosService.all($routeParams.id).then(function(response) {
       $scope.photos = response.data;
+      $scope.album_name = $scope.photos[0].album_name;
     });
   };
 

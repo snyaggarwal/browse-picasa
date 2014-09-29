@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe Albums, type: :model do
+  it 'should not load photos if forced to' do
+    expect_any_instance_of(Albums).not_to receive(:load_albums)
+
+    Albums.new('user_id', 'token', false)
+  end
+
   it 'should initialize and parse albums' do
     expect_any_instance_of(Albums).to receive(:load_albums)
                                       .with('user_id', 'token')

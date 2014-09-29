@@ -51,22 +51,25 @@ module PicasaWeb
     Hash.from_xml(res.read)
   end
 
-  def log_response(request, response)
-    if has_error_status_code(response)
-      if Rails.logger
-        Rails.logger.info(request)
-        Rails.logger.info(response.body)
-      end
-    end
-  end
 
-  def has_error_status_code(response)
-    (response.code != '200') && (response.code != '201')
-  end
+  # Some Logging and timeout should be there
 
-  def set_timeout(http)
-    http.read_timeout = 30
-    http.open_timeout = 30
-  end
+  #def log_response(request, response)
+  #  if has_error_status_code(response)
+  #    if Rails.logger
+  #      Rails.logger.info(request)
+  #      Rails.logger.info(response.body)
+  #    end
+  #  end
+  #end
+  #
+  #def has_error_status_code(response)
+  #  (response.code != '200') && (response.code != '201')
+  #end
+  #
+  #def set_timeout(http)
+  #  http.read_timeout = 30
+  #  http.open_timeout = 30
+  #end
 
 end

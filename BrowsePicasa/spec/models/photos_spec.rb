@@ -9,6 +9,14 @@ describe Photos, type: :model do
     photos = Photos.new('token', 'user_id', 'album_id').all
     expect(photos.count).to eq(2)
     expect(photos[0]).to be_instance_of(Photo)
+    expect(photos[0].album_name).not_to be_blank
+    expect(photos[0].id).not_to be_blank
+    expect(photos[0].album_id).not_to be_blank
+  end
+
+  it 'should not load photos if forced to' do
+    expect_any_instance_of(Photos).not_to receive(:load_photos)
+    Photos.new('token', 'user_id', 'album_id', false)
   end
 
   it 'should return empty response if there are no photos' do

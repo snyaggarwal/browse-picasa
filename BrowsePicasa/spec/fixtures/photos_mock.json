@@ -1,5 +1,6 @@
 {
   "feed" : {
+    "title": "album_name",
     "entry": [
       {
         "id": ["ref", "1"],

@@ -1,13 +1,21 @@
-<div class="row">
-  <div class="col-lg-12">
-    <div class="welcome-heading">
-      <h1>Google Album Browser</h1>
-      <div ng-repeat="photo in photos">
-        <div>
+<%= render partial: 'templates/logout' %>
+
+<div class="panel panel-primary photos center">
+  <div class="panel-heading">
+    <h3 class="panel-title">Photos of Album <i>{{ album_name }}</i></h3>
+  </div>
+  <div class="panel-body">
+    <div class="panel panel-default" ng-repeat="photo in photos">
+      <div class="panel-body">
+        <div class="pull-left photo">
           <img ng-src="{{ photo.image }}"/>
           <label>{{ photo.title }}</label>
-          <textarea name="comment" cols="60" rows="6" ng-model="photo.comment">{{ photo.comment }}</textarea>
-          <button class="btn btn-success" ng-click='postComment(photo)'>Post</button>
+        </div>
+        <div class="center">
+          <textarea name="comment" class="col-md-6" rows="6" ng-model="photo.comment">{{ photo.comment }}</textarea>
+        </div>
+        <div class="col-md-7">
+          <button class="btn btn-default center" ng-click='postComment(photo)'>Post</button>
         </div>
       </div>
     </div>

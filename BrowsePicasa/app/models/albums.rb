@@ -6,12 +6,11 @@ class Albums
 
   alias_method :all, :albums
 
-  def initialize(user_id, access_token)
+  def initialize(user_id, access_token, refresh_albums = true)
     self.access_token = access_token
     self.user_id = user_id
-    self.albums = parse(load_albums(user_id, access_token))
+    self.albums = refresh_albums ? parse(load_albums(user_id, access_token)) : []
   end
-
 
   def photos(album_id)
     Photos.new(self.access_token, self.user_id, album_id).all

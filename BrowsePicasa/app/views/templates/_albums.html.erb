@@ -1,8 +1,17 @@
 <%= render partial: 'templates/logout' %>
 
-<div ng-repeat="album in albums">
-  <div>
-    <img ng-src="{{ album.image }}" ng-click="getPhotos(album)"/>
-    <label>{{ album.title }}</label>
+<div class="panel panel-primary albums center">
+  <div class="panel-heading">
+    <h3 class="panel-title">Albums</h3>
+  </div>
+  <div class="panel-body">
+    <div class="panel panel-default" ng-repeat="album in albums">
+      <div class="panel-body">
+        <div class="album">
+          <img ng-src="{{ album.image }}" ng-click="getPhotos(album)"/>
+          <label>{{ album.title }}</label>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

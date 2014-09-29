@@ -1,7 +1,7 @@
 class Photos
   include PicasaWeb
 
-  attr_accessor :photos, :album_id
+  attr_accessor :photos, :album_id, :album_name
   attr_accessor :access_token, :user_id
   alias_method :all, :photos
 
@@ -22,10 +22,11 @@ class Photos
   def parse(photos_data)
     photo_entries = photos_data['feed']['entry'] rescue []
     return photo_entries if photo_entries.blank?
+    album_name = photos_data['feed']['title']
     photo_entries.map do |metadata|
       #image_url = metadata['group']['thumbnail'].detect {|thumbnail| thumbnail['height'] == '288'}
       image_url = metadata['group']['thumbnail'].last
-      Photo.new(metadata['id'][1], self.album_id, metadata['group']['title'], image_url['url'])
+      Photo.new(metadata['id'][1], self.album_id, metadata['group']['title'], image_url['url'], album_name)
     end
   end
 end

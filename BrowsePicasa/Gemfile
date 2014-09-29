@@ -11,6 +11,9 @@ group :development, :test do
   gem 'rake'
   gem 'pry'
   gem 'rspec-rails', '~>3.0.0'
+end
+
+group :test do
   gem 'simplecov', require: false
 end
 
@@ -19,7 +22,7 @@ group :development do
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end

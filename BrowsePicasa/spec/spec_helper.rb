@@ -3,14 +3,12 @@ ENV["RAILS_ENV"] ||= 'test'
 
 require 'simplecov'
 
-if ENV['COVERAGE'] == 'true'
-  SimpleCov.start do
-    add_filter '/vendor/'
-    add_filter '/spec/'
-    add_filter '/config/'
-    minimum_coverage 100
-    refuse_coverage_drop
-  end
+SimpleCov.start do
+  add_filter '/vendor/'
+  add_filter '/spec/'
+  add_filter '/config/'
+  minimum_coverage 99
+  refuse_coverage_drop
 end
 
 require File.expand_path("../../config/environment", __FILE__)

@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   end
 
   def photos
-    photos = Albums.new(current_user.user_id, current_user.access_token).photos(params[:id])
+    photos = Albums.new(current_user.user_id, current_user.access_token, false).photos(params[:id])
     render json: photos, status: 200
   end
 end

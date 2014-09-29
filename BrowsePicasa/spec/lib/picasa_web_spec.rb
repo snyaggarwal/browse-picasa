@@ -42,6 +42,15 @@ describe 'PicasaWeb' do
       expect(response).to eq({ 'id' => "1" })
     end
 
+    it 'should convert xml to hash on photos load' do
+      expect(http_response).to receive(:read).and_return("<id>1</id>")
+      expect(@dummy_class).to receive(:open).with('https://picasaweb.google.com/data/feed/api/user/user_id/albumid/album_id?max-results=3&kind=photo&access_token=access_token').and_return(http_response)
+
+      response = @dummy_class.load_photos(token, 'user_id', 'album_id', 3)
+
+      expect(response).to eq({ 'id' => "1" })
+    end
+
     it 'should call Net/HTTP post services on comment post' do
       mock_uri = double('uri', host: 'picasaweb.google.com', port: '80', request_uri: 'https://picasaweb.google.com/data/feed/api/user/user_id/albumid/album_id/photoid/photo_id?kind=comment&access_token=%access_token')
 
