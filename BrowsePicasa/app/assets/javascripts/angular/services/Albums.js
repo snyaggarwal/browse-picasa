@@ -1,10 +1,10 @@
 BrowsePicasa.factory('Albums', ['$http', function($http) {
   return {
     all: function() {
-      return $http.get('/albums');
+      return $http.get('/api/albums');
     },
     photos: function(albumId) {
-      return $http.get("/albums/" + albumId + '/photos');
+      return $http.get("/api/albums/" + albumId + '/photos');
     }
   }
 }]);

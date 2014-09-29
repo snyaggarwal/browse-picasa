@@ -4,8 +4,9 @@ BrowsePicasa::Application.routes.draw do
   get 'welcome/index' => 'welcome#index'
   post 'login' => 'session#create'
   delete 'logout' => 'session#logout'
-
-  get 'albums' => 'albums#all'
-  get 'albums/:id/photos' => 'albums#photos'
-  post 'albums/:album_id/photos/:id/comment' => 'photos#comment'
+  namespace 'api' do
+    get 'albums' => 'albums#all'
+    get 'albums/:id/photos' => 'albums#photos'
+    post 'albums/:album_id/photos/:id/comment' => 'photos#comment'
+  end
 end

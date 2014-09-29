@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AlbumsController, type: :controller do
+describe Api::AlbumsController, type: :controller do
   describe 'actions' do
     let(:albums_mock) { double(Albums) }
 

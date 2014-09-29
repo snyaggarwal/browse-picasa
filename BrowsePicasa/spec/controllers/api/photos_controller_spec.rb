@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PhotosController, type: :controller do
+describe Api::PhotosController, type: :controller do
   describe 'actions' do
     let(:photos_mock) { double(Photos) }
 
