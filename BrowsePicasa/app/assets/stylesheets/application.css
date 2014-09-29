@@ -31,3 +31,21 @@ body {
     font-size: 5em;
 }
 
+.navbar {
+    background-color: rgb(213,51,38);
+}
+
+.navbar-right {
+    margin-top: 8px;
+}
+
+.navbar-brand img {
+    width: 50px;
+}
+
+.navbar-brand {
+    padding-top: 0 !important;
+}
+
+
+
