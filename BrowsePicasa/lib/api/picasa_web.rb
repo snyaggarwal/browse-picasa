@@ -52,7 +52,7 @@ module PicasaWeb
   end
 
 
-  # Some Logging and timeout should be there
+  # TODO: Some Logging and timeout should be there
 
   #def log_response(request, response)
   #  if has_error_status_code(response)

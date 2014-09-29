@@ -2,7 +2,6 @@ BrowsePicasa.directive('logout', ['$location', 'Authentication', function($locat
   return function(scope, element, attrs) {
     var clickingCallback = function() {
       Authentication.disconnect().then(function(response) {
-        console.log(response);
         $location.path('/');
       });
     };

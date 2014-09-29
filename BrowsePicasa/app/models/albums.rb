@@ -20,9 +20,11 @@ class Albums
   def parse(album_data)
     album_entries = album_data['feed']['entry'] rescue []
     return album_entries if album_entries.blank?
-    album_entries.map do |data|
-      Album.new(data['id'][1], data['id'][0], data['title'], data['group']['content']['url'])
+    album_entries.inject([]) do |albums, data|
+      if data.is_a? Hash
+        albums << Album.new(data['id'][1], data['id'][0], data['title'], data['group']['content']['url'])
+      end
+      albums
     end
-
   end
 end

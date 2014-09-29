@@ -23,10 +23,12 @@ class Photos
     photo_entries = photos_data['feed']['entry'] rescue []
     return photo_entries if photo_entries.blank?
     album_name = photos_data['feed']['title']
-    photo_entries.map do |metadata|
-      #image_url = metadata['group']['thumbnail'].detect {|thumbnail| thumbnail['height'] == '288'}
-      image_url = metadata['group']['thumbnail'].last
-      Photo.new(metadata['id'][1], self.album_id, metadata['group']['title'], image_url['url'], album_name)
+    photo_entries.inject([]) do |photos, metadata|
+      if metadata.kind_of? Hash
+        image_url = metadata['group']['thumbnail'].last
+        photos << Photo.new(metadata['id'][1], self.album_id, metadata['group']['title'], image_url['url'], album_name)
+      end
+      photos
     end
   end
 end
